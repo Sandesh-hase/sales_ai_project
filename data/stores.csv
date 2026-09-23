@@ -1,0 +1,9 @@
+store_id,store_name,city,state,region,country,store_type,store_size_sqft,opening_date,sales_channel,latitude,longitude,customer_density,average_income_index,urban_rural,store_performance_segment,city_tier
+S01,Mumbai Flagship 01,Mumbai,Maharashtra,West,India,Flagship,22000,2015-03-01,Physical Store,19.076,72.8777,9.2,1.35,Urban,Top Performer,1
+S02,Bengaluru Flagship 02,Bengaluru,Karnataka,South,India,Flagship,19500,2016-07-15,Physical Store,12.9716,77.5946,8.8,1.3,Urban,Top Performer,1
+S03,Delhi Standard 03,Delhi,Delhi,North,India,Standard,11000,2017-01-10,Physical Store,28.7041,77.1025,8.0,1.28,Urban,Core Performer,1
+S04,Hyderabad Standard 04,Hyderabad,Telangana,South,India,Standard,9800,2017-09-01,Physical Store,17.385,78.4867,7.5,1.22,Urban,Core Performer,1
+S05,Pune Standard 05,Pune,Maharashtra,West,India,Standard,8600,2018-02-15,Physical Store,18.5204,73.8567,7.0,1.18,Urban,Core Performer,1
+S06,Ahmedabad Compact 06,Ahmedabad,Gujarat,West,India,Compact,5200,2018-11-01,Physical Store,23.0225,72.5714,5.8,1.12,Semi-Urban,Core Performer,2
+S07,Lucknow Compact 07,Lucknow,Uttar Pradesh,North,India,Compact,4400,2019-04-01,Physical Store,26.8467,80.9462,5.0,0.92,Semi-Urban,Underperformer,2
+S08,Jaipur Express 08,Jaipur,Rajasthan,North,India,Express,2600,2019-08-15,Physical Store,26.9124,75.7873,4.2,0.97,Semi-Urban,Underperformer,2

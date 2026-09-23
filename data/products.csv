@@ -1,0 +1,7 @@
+product_id,product_name,category,subcategory,brand,product_type,launch_date,lifecycle_status,base_price,cost_price,seasonality_type,demand_class,return_rate_baseline,trend_annual_multiplier,price_elasticity_tier,category_seasonality_flavor
+P001,Voltix Smart Watch Pro 300,Electronics,Smart Watches,Voltix,Smart Watches,2019-06-01,Growing,12500.0,7200.0,Highly Seasonal,Medium Volume,0.05,1.18,high,festival_driven
+P002,FreshFarm Packaged Foods Essential 400,Grocery,Packaged Foods,FreshFarm,Packaged Foods,2018-01-01,Mature,180.0,140.0,Moderately Seasonal,High Volume,0.005,1.02,low,festival_mild
+P003,Urbane Women's Classic 700,Clothing,Women's,Urbane,Women's,2018-06-01,Mature,1800.0,950.0,Highly Seasonal,Medium Volume,0.13,1.0,high,seasonal_apparel
+P004,Coolwell Air Conditioner Max 500,Home Appliances,Air Conditioners,Coolwell,Air Conditioners,2018-01-01,Mature,38000.0,24000.0,Highly Seasonal,Low Volume,0.03,1.03,medium,summer_driven
+P005,Peakform Fitness Equipment Elite 200,Sports & Fitness,Fitness Equipment,Peakform,Fitness Equipment,2019-01-01,Growing,6500.0,3900.0,Moderately Seasonal,Medium Volume,0.04,1.14,medium,summer_winter_mix
+P006,Luvena Skincare Daily 900,Beauty & Personal Care,Skincare,Luvena,Skincare,2018-01-01,Mature,650.0,380.0,Moderately Seasonal,High Volume,0.03,1.05,medium,moderate
