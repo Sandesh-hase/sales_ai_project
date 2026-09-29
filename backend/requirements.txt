@@ -1,0 +1,17 @@
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+databricks-sql-connector
+pyarrow
+statsmodels
+prophet
+cmdstanpy
+python-dotenv
+tensorflow
+fastapi
+uvicorn[standard]
+openai
+databricks-sdk
+python-multipart
