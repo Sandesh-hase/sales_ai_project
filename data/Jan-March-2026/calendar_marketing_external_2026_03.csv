@@ -1,0 +1,32 @@
+date,day_of_week,day_name,week_of_year,month,month_name,quarter,year,day_of_month,is_weekend,is_month_start,is_month_end,is_quarter_start,is_quarter_end,holiday_name,holiday_flag,holiday_type,days_to_holiday,days_from_holiday,promotion_event,major_event_flag,temperature_c,rainfall_mm,humidity_pct,weather_condition,inflation_index,consumer_confidence_index,unemployment_rate,fuel_price_index,marketing_campaign,campaign_type,campaign_intensity,digital_ad_spend,offline_ad_spend,campaign_active_flag
+2026-03-01,7,Sunday,9,3,March,1,2026,1,True,True,False,False,False,,False,,2,15,,False,21.7,0.0,66.3,Pleasant,7.36,108.85,6.45,101.27,,,,195713.32,66585.72,False
+2026-03-02,1,Monday,10,3,March,1,2026,2,False,False,False,False,False,,False,,1,16,,False,20.6,0.0,47.8,Pleasant,7.36,108.73,6.45,101.39,,,,138919.67,74561.41,False
+2026-03-03,2,Tuesday,10,3,March,1,2026,3,False,False,False,False,False,Holi,True,Festival,0,0,,False,20.6,0.0,65.9,Pleasant,7.35,108.8,6.45,101.39,,,,113818.67,93562.24,False
+2026-03-04,3,Wednesday,10,3,March,1,2026,4,False,False,False,False,False,,False,,16,1,,False,23.3,0.0,49.0,Pleasant,7.33,108.76,6.44,101.47,,,,122453.42,77717.42,False
+2026-03-05,4,Thursday,10,3,March,1,2026,5,False,False,False,False,False,,False,,15,2,,False,23.2,0.0,54.2,Pleasant,7.32,108.74,6.44,101.51,,,,140709.79,83119.99,False
+2026-03-06,5,Friday,10,3,March,1,2026,6,False,False,False,False,False,,False,,14,3,,False,23.6,0.0,51.7,Pleasant,7.29,108.72,6.44,101.38,,,,148052.77,65962.51,False
+2026-03-07,6,Saturday,10,3,March,1,2026,7,True,False,False,False,False,,False,,13,4,,False,22.3,0.0,36.9,Pleasant,7.29,108.5,6.43,101.35,,,,147445.06,80791.21,False
+2026-03-08,7,Sunday,10,3,March,1,2026,8,True,False,False,False,False,,False,,12,5,,False,21.3,0.0,63.0,Pleasant,7.29,108.48,6.43,101.4,,,,170476.78,91238.88,False
+2026-03-09,1,Monday,11,3,March,1,2026,9,False,False,False,False,False,,False,,11,6,,False,22.3,0.0,49.8,Pleasant,7.33,108.23,6.43,101.35,,,,150702.54,80940.87,False
+2026-03-10,2,Tuesday,11,3,March,1,2026,10,False,False,False,False,False,,False,,10,7,,False,21.5,0.0,59.7,Pleasant,7.32,108.18,6.43,101.36,,,,126990.66,63405.68,False
+2026-03-11,3,Wednesday,11,3,March,1,2026,11,False,False,False,False,False,,False,,9,8,,False,23.6,0.0,66.3,Pleasant,7.3,108.12,6.43,101.38,,,,155785.5,70561.09,False
+2026-03-12,4,Thursday,11,3,March,1,2026,12,False,False,False,False,False,,False,,8,9,,False,24.3,0.0,53.5,Pleasant,7.32,108.11,6.44,101.44,,,,166333.92,77887.09,False
+2026-03-13,5,Friday,11,3,March,1,2026,13,False,False,False,False,False,,False,,7,10,,False,22.3,0.0,67.7,Pleasant,7.31,108.27,6.46,101.49,,,,140857.84,75138.01,False
+2026-03-14,6,Saturday,11,3,March,1,2026,14,True,False,False,False,False,,False,,6,11,,False,23.2,0.0,54.1,Pleasant,7.33,108.42,6.44,101.59,,,,192947.13,82564.16,False
+2026-03-15,7,Sunday,11,3,March,1,2026,15,True,False,False,False,False,,False,,5,12,,False,21.7,0.0,41.6,Pleasant,7.29,108.27,6.45,101.66,,,,191968.33,88700.06,False
+2026-03-16,1,Monday,12,3,March,1,2026,16,False,False,False,False,False,,False,,4,13,,False,23.0,0.0,57.5,Pleasant,7.3,108.39,6.46,101.67,,,,147440.24,89833.05,False
+2026-03-17,2,Tuesday,12,3,March,1,2026,17,False,False,False,False,False,,False,,3,14,,False,25.4,0.0,62.6,Pleasant,7.31,108.4,6.46,101.66,,,,142025.44,68974.47,False
+2026-03-18,3,Wednesday,12,3,March,1,2026,18,False,False,False,False,False,,False,,2,15,,False,23.6,2.9,57.8,Light Rain,7.32,108.38,6.46,101.58,,,,183592.72,66442.03,False
+2026-03-19,4,Thursday,12,3,March,1,2026,19,False,False,False,False,False,,False,,1,16,,False,25.1,0.0,54.3,Pleasant,7.34,108.38,6.46,101.6,,,,111853.11,60645.19,False
+2026-03-20,5,Friday,12,3,March,1,2026,20,False,False,False,False,False,Eid al-Fitr,True,Religious,0,0,,False,24.5,0.0,50.4,Pleasant,7.37,108.17,6.46,101.58,,,,151899.61,84626.92,False
+2026-03-21,6,Saturday,12,3,March,1,2026,21,True,False,False,False,False,,False,,24,1,,False,22.6,0.0,40.8,Pleasant,7.4,108.22,6.47,101.51,,,,152437.93,101836.78,False
+2026-03-22,7,Sunday,12,3,March,1,2026,22,True,False,False,False,False,,False,,23,2,,False,24.8,0.0,45.5,Pleasant,7.39,108.23,6.47,101.44,,,,131951.75,92998.13,False
+2026-03-23,1,Monday,13,3,March,1,2026,23,False,False,False,False,False,,False,,22,3,,False,23.1,1.4,53.8,Pleasant,7.38,108.32,6.47,101.54,,,,114595.56,62904.64,False
+2026-03-24,2,Tuesday,13,3,March,1,2026,24,False,False,False,False,False,,False,,21,4,,False,25.5,0.0,46.2,Pleasant,7.39,108.44,6.47,101.49,,,,136953.54,66074.9,False
+2026-03-25,3,Wednesday,13,3,March,1,2026,25,False,False,False,False,False,,False,,20,5,,False,26.8,0.0,47.8,Pleasant,7.39,108.5,6.49,101.48,,,,158668.59,69548.47,False
+2026-03-26,4,Thursday,13,3,March,1,2026,26,False,False,False,False,False,,False,,19,6,,False,26.4,0.0,47.1,Pleasant,7.41,108.59,6.51,101.5,,,,153959.51,79515.12,False
+2026-03-27,5,Friday,13,3,March,1,2026,27,False,False,False,False,False,,False,,18,7,,False,27.9,0.0,46.6,Pleasant,7.39,108.59,6.51,101.56,,,,108566.15,65702.28,False
+2026-03-28,6,Saturday,13,3,March,1,2026,28,True,False,False,False,False,,False,,17,8,,False,27.6,0.7,55.7,Pleasant,7.39,108.65,6.51,101.58,,,,184147.1,84016.73,False
+2026-03-29,7,Sunday,13,3,March,1,2026,29,True,False,False,False,False,,False,,16,9,,False,28.5,0.0,57.0,Pleasant,7.43,108.73,6.5,101.64,,,,167894.03,84574.63,False
+2026-03-30,1,Monday,14,3,March,1,2026,30,False,False,False,False,False,,False,,15,10,,False,28.2,0.0,59.7,Pleasant,7.42,108.83,6.5,101.62,,,,150233.37,65031.97,False
+2026-03-31,2,Tuesday,14,3,March,1,2026,31,False,False,True,False,True,,False,,14,11,,False,27.0,0.0,57.6,Pleasant,7.43,108.69,6.5,101.56,,,,178936.54,86843.33,False
