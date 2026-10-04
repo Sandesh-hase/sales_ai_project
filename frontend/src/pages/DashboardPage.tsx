@@ -29,7 +29,7 @@ function DashboardPage() {
     <div className="dashboard">
       <header className="dashboard-header">
         <div className="header-top-row">
-          <h1>Sales AI Forecast Dashboard</h1>
+          <h1>Sales AI Forecast Tool</h1>
         </div>
         <p className="subtitle">Databricks-powered forecasts and explanations</p>
         <TrendBackdrop />
