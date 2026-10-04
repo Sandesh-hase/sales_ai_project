@@ -90,7 +90,7 @@ def health() -> HealthResponse:
             detail="API is up but the Databricks connection check failed. Check server logs for details.",
         )
 
-    return HealthResponse(status="ok", databricks_connected=True)
+    return HealthResponse(status="okay", databricks_connected=True)
 
 
 def _to_date(value):
