@@ -63,16 +63,12 @@ app = FastAPI(
 # different origin/domain in production) to call this API from the browser.
 # Configurable via CORS_ALLOW_ORIGINS (comma-separated) since frontend and
 # backend can be deployed to different hosts.
-_default_cors_origins = "http://localhost:5173,http://127.0.0.1:5173"
-_cors_origins = [
-    origin.strip()
-    for origin in os.getenv("CORS_ALLOW_ORIGINS", _default_cors_origins).split(",")
-    if origin.strip()
-]
+allowed_origins = os.environ.get("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=_cors_origins,
+    allow_origins=allowed_origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
