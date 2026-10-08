@@ -20,11 +20,11 @@ targets:
     # - Deployed resources get prefixed with '[dev my_user_name]'
     # - Any job schedules and triggers are paused by default.
     # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
-    mode: development
+    mode: production
     default: true
     workspace:
       host: https://dbc-0101d67c-183e.cloud.databricks.com
-      root_path: /Workspace/Sales-AI/.bundle/${workspace.current_user.short_name}/${bundle.name}/${bundle.target}
+      root_path: /Workspace/Sales-AI/.bundle/sales_ai
     variables:
       catalog: sales_ai
       schema: ${workspace.current_user.short_name}
