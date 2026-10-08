@@ -1,0 +1,77 @@
+resources:
+  jobs:
+    sales_ai:
+      name: Sales_ai
+      tasks:
+        - task_key: Bronze_Transformation
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/02_bronze_ingestion.py
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: Silver_Transformation
+          depends_on:
+            - task_key: Bronze_Transformation
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/03_silver_transformation.py
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: EDA
+          depends_on:
+            - task_key: Silver_Transformation
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/04_exploratory_data_analysis.py
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: Gold_Transformation
+          depends_on:
+            - task_key: Silver_Transformation
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/05_gold_transformation.py
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: Model_Training
+          depends_on:
+            - task_key: Gold_Transformation
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/06_model_training.py
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: Inferencing
+          depends_on:
+            - task_key: Model_Training
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/07_batch_inference.py
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+      email_notifications:
+        no_alert_for_skipped_runs: false
+      max_concurrent_runs: 1
+      performance_target: PERFORMANCE_OPTIMIZED
+      queue:
+        enabled: true
+      timeout_seconds: 0
+      webhook_notifications: {}

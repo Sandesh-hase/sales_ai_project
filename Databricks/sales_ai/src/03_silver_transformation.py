@@ -291,6 +291,10 @@ print("\nData quality checks completed.")
 
 # COMMAND ----------
 
+display(sales_df)
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ### Integrate Sales, Product, Store and Calendar Data
 # MAGIC
