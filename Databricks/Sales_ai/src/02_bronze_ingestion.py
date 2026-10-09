@@ -257,3 +257,6 @@ for table in ["sales_transactions", "products", "stores", "calendar_marketing_ex
 # COMMAND ----------
 
 print("Bronze ingestion completed successfully.")
+
+# COMMAND ----------
+
