@@ -24,7 +24,7 @@ targets:
     default: true
     workspace:
       host: https://dbc-0101d67c-183e.cloud.databricks.com
-      root_path: /Workspace/Sales-AI/.bundle/dev
+      root_path: /Workspace/Sales-AI/.bundle/${workspace.current_user.short_name}/${bundle.name}/${bundle.target}
     variables:
       catalog: sales_ai
       schema: ${workspace.current_user.short_name}
