@@ -151,6 +151,10 @@ print(f"Daily grain records (date + product_id + store_id): {daily_agg.count():,
 
 # COMMAND ----------
 
+display(daily_agg)
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ## 2. Build a Complete Daily Calendar Scaffold
 # MAGIC
@@ -171,6 +175,9 @@ print(f"Daily grain records (date + product_id + store_id): {daily_agg.count():,
 
 # Observed product-store combinations, plus each series' true start date
 observed_combos = daily_agg.select("product_id", "store_id").distinct()
+display(observed_combos)
+
+# COMMAND ----------
 
 combo_bounds = (
     observed_combos
@@ -179,8 +186,18 @@ combo_bounds = (
     .withColumn("series_start_date", F.greatest("launch_date", "opening_date"))
     .select("product_id", "store_id", "series_start_date")
 )
+display(combo_bounds)
+
+# COMMAND ----------
 
 calendar_max_date = calendar_df.agg(F.max("date")).first()[0]
+calendar_max_date
+
+# COMMAND ----------
+
+display(calendar_df)
+
+# COMMAND ----------
 
 # Cross join each combo with every calendar date, then trim to that combo's valid range
 scaffold = (
@@ -192,9 +209,6 @@ scaffold = (
 )
 
 print(f"Scaffold records (every calendar day per active series): {scaffold.count():,}")
-
-# COMMAND ----------
-
 display(scaffold)
 
 # COMMAND ----------
@@ -256,6 +270,10 @@ print(f"Records after dimension join: {gold_df.count():,}")
 
 # COMMAND ----------
 
+display(gold_df)
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ## 4. Time-Series Feature Engineering
 # MAGIC
@@ -284,6 +302,11 @@ gold_df = (
 )
 
 print("Lag features added: lag_1, lag_7, lag_14, lag_28, lag_365")
+display(gold_df)
+
+# COMMAND ----------
+
+display(gold_df.select("units_sold", "lag_1", "lag_7", "lag_14", "lag_28", "lag_365"))
 
 # COMMAND ----------
 
@@ -315,6 +338,7 @@ gold_df = (
 )
 
 print("Rolling features added: rolling_mean_7/14/28/90, rolling_std_7/28")
+display(gold_df)
 
 # COMMAND ----------
 
@@ -408,6 +432,9 @@ print("Price features added: last_known_unit_price, price_change, price_change_p
 # COMMAND ----------
 
 gold_df = gold_df.withColumn("promotion_flag", F.col("promotion_id").isNotNull().cast("integer"))
+display(gold_df)
+
+# COMMAND ----------
 
 # Days since this series' own last promoted sale (past-only, per product-store)
 promo_date_col = F.when(F.col("promotion_flag") == 1, F.col("date"))
@@ -420,6 +447,9 @@ gold_df = (
     .withColumn("promotion_frequency_90d", F.sum("promotion_flag").over(series_window.rowsBetween(-90, -1)))
     .drop("_last_promo_date")
 )
+display(gold_df)
+
+# COMMAND ----------
 
 # Calendar-level known campaign schedule (category-agnostic, computed once over the small calendar table)
 calendar_order = Window.orderBy("date")
@@ -448,6 +478,8 @@ gold_df = gold_df.join(calendar_campaign_features, "date", "left")
 print("Promotion features added: promotion_flag, days_since_last_promotion, "
       "promotion_frequency_90d, days_since_last_campaign, days_until_next_campaign")
 
+display(gold_df)
+
 # COMMAND ----------
 
 # MAGIC %md
@@ -467,6 +499,9 @@ gold_df = gold_df.withColumn(
     "store_category_historical_avg_units",
     F.round(F.avg("units_sold").over(store_category_window), 2)
 )
+display(gold_df)
+
+# COMMAND ----------
 
 # Product age in days as of this row's date
 gold_df = gold_df.withColumn("product_age_days", F.datediff("date", "launch_date"))
@@ -692,3 +727,6 @@ display(
 print("Gold transformation pipeline completed successfully.")
 print(f"sales_ai.gold.sales_features is ready for model training "
       f"({len(gold_final_columns)} columns, {gold_df.count():,} rows).")
+
+# COMMAND ----------
+

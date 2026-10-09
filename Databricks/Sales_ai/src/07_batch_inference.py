@@ -191,6 +191,10 @@ print(f"Forecasting for {len(combo_static)} product-store series.")
 
 # COMMAND ----------
 
+combo_static
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ### Future Calendar Stub
 # MAGIC
@@ -518,3 +522,6 @@ print("Batch inference completed successfully.")
 print(f"Model: {MODEL_NAME} version {champion_version.version}")
 print(f"Forecast window: {forecast_dates[0].date()} to {forecast_dates[-1].date()}")
 print(f"Rows written: {len(forecast_df):,}")
+
+# COMMAND ----------
+
