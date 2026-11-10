@@ -574,29 +574,60 @@ def get_pipeline_status(run_id: int) -> PipelineStatusResponse:
     response_model=PipelineUploadAndTriggerResponse,
     summary="Upload raw data file(s) and immediately trigger the pipeline",
     description=(
-        "Uploads one or both files to DATABRICKS_VOLUME_INCOMING_PATH via the Databricks "
+        "Uploads one or more files to DATABRICKS_VOLUME_INCOMING_PATH via the Databricks "
         "Files API (overwriting any existing file with the same name), then triggers a "
         "run-now on DATABRICKS_JOB_ID. Provide a sales_transactions file and/or a "
         "calendar_marketing_external file -- whichever data is available; at least one is "
         "required. Every filename must start with `sales_transactions` or "
-        "`calendar_marketing_external` respectively; if either fails validation, nothing "
-        "is uploaded. Returns the run_id immediately; poll GET /pipeline/status/{run_id} "
-        "for progress. Use POST /pipeline/trigger instead if you want to re-run against "
-        "data that's already uploaded, with no new file."
+        "`calendar_marketing_external` respectively."
     ),
 )
 async def upload_and_trigger_pipeline(
-    sales_transactions_file: Optional[UploadFile] = File(
-        None, description="CSV whose filename starts with 'sales_transactions', e.g. sales_transactions_2026_09.csv"
-    ),
-    calendar_marketing_file: Optional[UploadFile] = File(
-        None,
-        description="CSV whose filename starts with 'calendar_marketing_external', e.g. calendar_marketing_external_2026_09.csv",
-    ),
+    files: List[UploadFile] = File(..., description="List of CSV files to upload")
 ) -> PipelineUploadAndTriggerResponse:
-    files = [f for f in (sales_transactions_file, calendar_marketing_file) if f is not None]
-    uploaded = await _upload_pipeline_files(files)
+
+    # 1. Ensure at least one file was provided
+    if not files or len(files) == 0:
+        raise HTTPException(
+            status_code=400,
+            detail="At least one file (sales_transactions or calendar_marketing_external) must be provided."
+        )
+
+    validated_files = []
+
+    # 2. Validate every file's extension and prefix
+    for file in files:
+        if not file.filename:
+            continue
+
+        filename_lower = file.filename.lower()
+        if not filename_lower.endswith(".csv"):
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid file '{file.filename}'. Only CSV files are accepted."
+            )
+
+        if not (
+            file.filename.startswith("sales_transactions") or
+            file.filename.startswith("calendar_marketing_external")
+        ):
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid filename '{file.filename}'. Must start with 'sales_transactions' or 'calendar_marketing_external'."
+            )
+
+        validated_files.append(file)
+
+    if not validated_files:
+        raise HTTPException(
+            status_code=400,
+            detail="No valid files provided."
+        )
+
+    # 3. Proceed with uploading and triggering job
+    uploaded = await _upload_pipeline_files(validated_files)
     run_id = _trigger_pipeline_job()
+
     return PipelineUploadAndTriggerResponse(files=uploaded, run_id=run_id)
 
 
