@@ -7,7 +7,7 @@ RUN npm install
 
 COPY . .
 
-# Vite inlines VITE_* variables into the static bundle at BUILD time, so this
+# Vite inlines VITE_* variables into the static bundle at BUILD time, so this is
 # must be a build arg (not just a runtime env var) to take effect.
 ARG VITE_API_BASE_URL=https://salesai-backend.orangewave-aeb38b8d.westus2.azurecontainerapps.io
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
