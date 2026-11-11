@@ -3,22 +3,22 @@ resources:
     sales_ai:
       name: Sales_ai
       tasks:
-        - task_key: Bronze_Transformation
-          depends_on:
-            - task_key: Initial_Setup
-          disabled: false
-          email_notifications: {}
-          notebook_task:
-            notebook_path: ../src/02_bronze_ingestion.py
-            source: WORKSPACE
-          run_if: ALL_SUCCESS
-          timeout_seconds: 0
-          webhook_notifications: {}
-        - task_key: Initial_Setup
+        - task_key: Initial_setup_sales_ai
           disabled: false
           email_notifications: {}
           notebook_task:
             notebook_path: ../src/01_setup_sales_ai.py
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: Bronze_Transformation
+          depends_on:
+            - task_key: Initial_setup_sales_ai
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/02_bronze_ingestion.py
             source: WORKSPACE
           run_if: ALL_SUCCESS
           timeout_seconds: 0
@@ -34,7 +34,7 @@ resources:
           run_if: ALL_SUCCESS
           timeout_seconds: 0
           webhook_notifications: {}
-        - task_key: EDA
+        - task_key: EDA_Notebook
           depends_on:
             - task_key: Silver_Transformation
           disabled: false

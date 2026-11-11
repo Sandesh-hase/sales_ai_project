@@ -2,7 +2,7 @@
 # See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
 bundle:
   name: Sales_ai
-  uuid: ff82f273-ee43-4eff-9b12-66e3f0e6587c
+  uuid: 013c19f8-ac58-47c9-8c9d-f4de32576810
 
 include:
   - resources/*.yml
@@ -20,11 +20,11 @@ targets:
     # - Deployed resources get prefixed with '[dev my_user_name]'
     # - Any job schedules and triggers are paused by default.
     # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
-    mode: production
+    mode: development
     default: true
     workspace:
-      host: https://dbc-0101d67c-183e.cloud.databricks.com
-      root_path: /Workspace/Sales-AI/.bundle/sales_ai/dev
+      host: https://dbc-18b87d74-85d5.cloud.databricks.com
+      root_path: /Workspace/Sales-AI/.bundle/${workspace.current_user.short_name}/${bundle.name}/${bundle.target}
     variables:
       catalog: sales_ai
       schema: ${workspace.current_user.short_name}
